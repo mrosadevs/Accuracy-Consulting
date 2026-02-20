@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Startup Accounting Checklist | Accuracy Consulting Group</title>
+  <link rel="stylesheet" href="tools.css?v=20260218b" />
+</head>
+<body data-tool="startup">
+  <header class="tool-header">
+    <div class="container tool-header-inner">
+      <a href="../main.html#resources" data-en="Back to Resource Center" data-es="Volver al Centro de Recursos">Back to Resource Center</a>
+      <img class="tool-logo" src="../images/ACGLOGOBLIUELONG.png" alt="Accuracy Consulting Group" />
+      <div class="tool-controls">
+        <button id="theme-btn" class="control-btn" type="button" aria-pressed="false">Day</button>
+        <button id="language-btn" class="control-btn" type="button" aria-pressed="false">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container tool-main">
+    <h1 data-en="Startup Accounting Checklist Planner" data-es="Planificador de Checklist Contable para Startups">Startup Accounting Checklist Planner</h1>
+    <p class="lead" data-en="Track setup tasks for your first quarter. Progress is saved in your browser automatically." data-es="Sigue tareas de configuracion para tu primer trimestre. El progreso se guarda automaticamente en tu navegador.">Track setup tasks for your first quarter. Progress is saved in your browser automatically.</p>
+
+    <div class="actions card">
+      <button id="mark-all" type="button" class="primary" data-en="Mark All" data-es="Marcar Todo">Mark All</button>
+      <button id="clear-all" type="button" data-en="Clear All" data-es="Limpiar Todo">Clear All</button>
+      <button type="button" onclick="window.print()" data-en="Print" data-es="Imprimir">Print</button>
+      <p id="progress-text" class="note"></p>
+      <div class="progress-wrap" style="width: 100%;">
+        <div class="progress-bar"><div class="progress-fill"></div></div>
+      </div>
+    </div>
+
+    <section class="card">
+      <h2 data-en="Business Setup" data-es="Configuracion del Negocio">Business Setup</h2>
+      <ul class="checklist">
+        <li><label><input type="checkbox" data-check-id="entity" /> <span data-en="Confirm entity and EIN details" data-es="Confirmar entidad y EIN">Confirm entity and EIN details</span></label></li>
+        <li><label><input type="checkbox" data-check-id="bank" /> <span data-en="Open dedicated business bank account" data-es="Abrir cuenta bancaria comercial">Open dedicated business bank account</span></label></li>
+        <li><label><input type="checkbox" data-check-id="accounting-software" /> <span data-en="Set up accounting software" data-es="Configurar software contable">Set up accounting software</span></label></li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2 data-en="Bookkeeping Foundation" data-es="Base de Contabilidad">Bookkeeping Foundation</h2>
+      <ul class="checklist">
+        <li><label><input type="checkbox" data-check-id="chart" /> <span data-en="Build chart of accounts" data-es="Crear plan de cuentas">Build chart of accounts</span></label></li>
+        <li><label><input type="checkbox" data-check-id="receipts" /> <span data-en="Create receipt/document storage workflow" data-es="Crear flujo de recibos/documentos">Create receipt/document storage workflow</span></label></li>
+        <li><label><input type="checkbox" data-check-id="reconcile" /> <span data-en="Schedule monthly reconciliation cadence" data-es="Programar conciliacion mensual">Schedule monthly reconciliation cadence</span></label></li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2 data-en="Compliance and Reporting" data-es="Cumplimiento y Reportes">Compliance and Reporting</h2>
+      <ul class="checklist">
+        <li><label><input type="checkbox" data-check-id="sales-tax" /> <span data-en="Confirm sales tax requirements" data-es="Confirmar requisitos de impuestos de ventas">Confirm sales tax requirements</span></label></li>
+        <li><label><input type="checkbox" data-check-id="payroll" /> <span data-en="Set payroll filing calendar" data-es="Definir calendario de nomina">Set payroll filing calendar</span></label></li>
+        <li><label><input type="checkbox" data-check-id="kpi" /> <span data-en="Define monthly KPI report template" data-es="Definir plantilla KPI mensual">Define monthly KPI report template</span></label></li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="tools.js?v=20260218b"></script>
+</body>
+</html>

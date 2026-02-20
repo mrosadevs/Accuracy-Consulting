@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Family Tax Checklist | Accuracy Consulting Group</title>
+  <link rel="stylesheet" href="tools.css?v=20260218b" />
+</head>
+<body data-tool="family-tax">
+  <header class="tool-header">
+    <div class="container tool-header-inner">
+      <a href="../main.html#resources" data-en="Back to Resource Center" data-es="Volver al Centro de Recursos">Back to Resource Center</a>
+      <img class="tool-logo" src="../images/ACGLOGOBLIUELONG.png" alt="Accuracy Consulting Group" />
+      <div class="tool-controls">
+        <button id="theme-btn" class="control-btn" type="button" aria-pressed="false">Day</button>
+        <button id="language-btn" class="control-btn" type="button" aria-pressed="false">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container tool-main">
+    <h1 data-en="Family Tax Document Checklist" data-es="Checklist de Documentos Familiares">Family Tax Document Checklist</h1>
+    <p class="lead" data-en="Use this planner to track your document collection before filing season." data-es="Usa este planificador para seguir tus documentos antes de declarar.">Use this planner to track your document collection before filing season.</p>
+
+    <div class="actions card">
+      <button id="mark-all" type="button" class="primary" data-en="Mark All" data-es="Marcar Todo">Mark All</button>
+      <button id="clear-all" type="button" data-en="Clear All" data-es="Limpiar Todo">Clear All</button>
+      <button type="button" onclick="window.print()" data-en="Print" data-es="Imprimir">Print</button>
+      <p id="progress-text" class="note"></p>
+      <div class="progress-wrap" style="width: 100%;"><div class="progress-bar"><div class="progress-fill"></div></div></div>
+    </div>
+
+    <section class="card">
+      <h2 data-en="Income Documents" data-es="Documentos de Ingresos">Income Documents</h2>
+      <ul class="checklist">
+        <li><label><input type="checkbox" data-check-id="w2" /> <span data-en="W-2 forms" data-es="Formularios W-2">W-2 forms</span></label></li>
+        <li><label><input type="checkbox" data-check-id="1099" /> <span data-en="1099 forms (interest/dividends/contract)" data-es="Formularios 1099 (intereses/dividendos/contrato)">1099 forms (interest/dividends/contract)</span></label></li>
+        <li><label><input type="checkbox" data-check-id="biz-income" /> <span data-en="Small business income summaries" data-es="Resumenes de ingresos del negocio">Small business income summaries</span></label></li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2 data-en="Deductions and Credits" data-es="Deducciones y Creditos">Deductions and Credits</h2>
+      <ul class="checklist">
+        <li><label><input type="checkbox" data-check-id="mortgage" /> <span data-en="Mortgage interest statement" data-es="Estado de intereses hipotecarios">Mortgage interest statement</span></label></li>
+        <li><label><input type="checkbox" data-check-id="charity" /> <span data-en="Charitable donation receipts" data-es="Recibos de donaciones">Charitable donation receipts</span></label></li>
+        <li><label><input type="checkbox" data-check-id="childcare" /> <span data-en="Childcare and dependent care records" data-es="Registros de cuidado de dependientes">Childcare and dependent care records</span></label></li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2 data-en="Custom Document List" data-es="Lista Personalizada de Documentos">Custom Document List</h2>
+      <div class="tool-row">
+        <label>
+          <span data-en="Add custom document" data-es="Agregar documento personalizado">Add custom document</span>
+          <input id="custom-doc" type="text" data-en-ph="Example: Tuition statement" data-es-ph="Ejemplo: Estado de matricula" placeholder="Example: Tuition statement" />
+        </label>
+        <div class="actions" style="align-items: end;"><button id="add-custom-doc" type="button" class="primary" data-en="Add Document" data-es="Agregar Documento">Add Document</button></div>
+      </div>
+      <div id="custom-doc-list" class="tool-row" style="margin-top: 0.8rem;"></div>
+    </section>
+  </main>
+
+  <script src="tools.js?v=20260218b"></script>
+</body>
+</html>

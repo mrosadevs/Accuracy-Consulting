@@ -1,0 +1,274 @@
+﻿:root {
+  --bg: #f4f3f2;
+  --surface: #ffffff;
+  --surface-soft: #f5faff;
+  --ink: #15314f;
+  --muted: #466482;
+  --accent: #007bff;
+  --line: #c8dbf2;
+  --shadow: 0 14px 30px rgba(0, 123, 255, 0.14);
+  --radius: 14px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background-color: var(--bg);
+  color: var(--ink);
+}
+
+body {
+  margin: 0;
+  font-family: "Manrope", sans-serif;
+  background: var(--bg);
+  background-color: var(--bg);
+  color: var(--ink);
+}
+
+body:not(.night-mode) {
+  --bg: #f4f3f2;
+  --surface: #ffffff;
+  --surface-soft: #f5faff;
+  --ink: #15314f;
+  --muted: #466482;
+  --accent: #007bff;
+  --line: #c8dbf2;
+  --shadow: 0 14px 30px rgba(0, 123, 255, 0.14);
+  background-color: #f4f3f2;
+  color: #15314f;
+}
+
+body.night-mode {
+  --bg: #0a1020;
+  --surface: #111a2e;
+  --surface-soft: #16233d;
+  --ink: #e7efff;
+  --muted: #a8bddc;
+  --accent: #007bff;
+  --line: #243658;
+  --shadow: 0 14px 28px rgba(0, 0, 0, 0.42);
+  background-color: #0a1020;
+}
+
+html:not(.night-mode) {
+  background-color: #f4f3f2;
+  color: #15314f;
+}
+
+html.night-mode {
+  background-color: #0a1020;
+  color: #e7efff;
+}
+
+.container {
+  width: min(950px, 92vw);
+  margin: 0 auto;
+}
+
+.tool-header {
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.tool-header-inner {
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+}
+
+.tool-header a {
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.tool-logo {
+  height: 38px;
+  width: auto;
+}
+
+.tool-controls {
+  display: flex;
+  gap: 0.45rem;
+}
+
+.control-btn {
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+  border-radius: 999px;
+  padding: 0.42rem 0.68rem;
+  font-size: 0.78rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.control-btn[aria-pressed="true"] {
+  background: var(--accent);
+  border-color: transparent;
+  color: #fff;
+}
+
+.tool-main {
+  padding: 1.4rem 0 2.4rem;
+}
+
+h1 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-family: "Fraunces", serif;
+}
+
+.lead {
+  margin: 0 0 1rem;
+  color: var(--muted);
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1rem;
+  margin-bottom: 0.9rem;
+}
+
+.card h2 {
+  margin: 0 0 0.55rem;
+  font-size: 1.07rem;
+}
+
+.tool-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.tool-row-3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+label {
+  display: grid;
+  gap: 0.28rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+input,
+select,
+button,
+textarea {
+  font: inherit;
+}
+
+input,
+select,
+textarea {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.55rem;
+  background: var(--surface);
+  color: var(--ink);
+}
+
+button {
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+  border-radius: 999px;
+  padding: 0.5rem 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button.primary {
+  background: var(--accent);
+  border-color: transparent;
+  color: #fff;
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.checklist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.checklist label {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.42rem 0.5rem;
+  border-radius: 8px;
+  background: var(--surface-soft);
+  border: 1px solid var(--line);
+}
+
+.progress-wrap {
+  margin-top: 0.7rem;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  border-radius: 999px;
+  background: #dcecff;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--accent), #3194ff);
+}
+
+.result {
+  background: var(--surface-soft);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0.65rem;
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.note {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  border: 1px solid var(--line);
+  padding: 0.45rem;
+  text-align: left;
+}
+
+@media (max-width: 760px) {
+  .tool-row,
+  .tool-row-3 {
+    grid-template-columns: 1fr;
+  }
+}

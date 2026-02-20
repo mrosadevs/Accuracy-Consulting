@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quarterly Tax Planner | Accuracy Consulting Group</title>
+  <link rel="stylesheet" href="tools.css?v=20260218b" />
+</head>
+<body data-tool="quarterly-tax">
+  <header class="tool-header">
+    <div class="container tool-header-inner">
+      <a href="../main.html#resources" data-en="Back to Resource Center" data-es="Volver al Centro de Recursos">Back to Resource Center</a>
+      <img class="tool-logo" src="../images/ACGLOGOBLIUELONG.png" alt="Accuracy Consulting Group" />
+      <div class="tool-controls">
+        <button id="theme-btn" class="control-btn" type="button" aria-pressed="false">Day</button>
+        <button id="language-btn" class="control-btn" type="button" aria-pressed="false">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container tool-main">
+    <h1 data-en="Quarterly Tax Prep Planner" data-es="Planificador Trimestral de Impuestos">Quarterly Tax Prep Planner</h1>
+    <p class="lead" data-en="Estimate quarterly payments and track filing milestones." data-es="Estima pagos trimestrales y sigue hitos de presentacion.">Estimate quarterly payments and track filing milestones.</p>
+
+    <section class="card">
+      <h2 data-en="Tax Estimate Calculator" data-es="Calculadora de Impuestos">Tax Estimate Calculator</h2>
+      <form id="tax-calc" class="tool-row-3" novalidate>
+        <label><span data-en="Annual Profit ($)" data-es="Ganancia Anual ($)">Annual Profit ($)</span><input id="annual-profit" type="number" min="0" step="100" value="120000" /></label>
+        <label><span data-en="Effective Tax Rate (%)" data-es="Tasa Efectiva (%)">Effective Tax Rate (%)</span><input id="effective-rate" type="number" min="0" max="60" step="0.1" value="5.5" /></label>
+        <label><span data-en="Tax Withheld ($)" data-es="Impuesto Retenido ($)">Tax Withheld ($)</span><input id="tax-withheld" type="number" min="0" step="100" value="0" /></label>
+        <label><span data-en="Tax Already Paid ($)" data-es="Impuesto Ya Pagado ($)">Tax Already Paid ($)</span><input id="tax-paid" type="number" min="0" step="100" value="0" /></label>
+      </form>
+      <p class="lead" data-en="Florida defaults: personal income tax 0%, corporate income tax 5.5%, sales tax 6% (+ local surtax may apply)." data-es="Valores predeterminados para Florida: impuesto personal 0%, impuesto corporativo 5.5%, impuesto sobre ventas 6% (+ puede aplicar recargo local).">Florida defaults: personal income tax 0%, corporate income tax 5.5%, sales tax 6% (+ local surtax may apply).</p>
+      <p id="tax-result" class="result"></p>
+    </section>
+
+    <section class="card">
+      <h2 data-en="Quarterly Due-Date Tracker" data-es="Seguimiento de Fechas Trimestrales">Quarterly Due-Date Tracker</h2>
+      <table class="table">
+        <thead><tr><th data-en="Done" data-es="Hecho">Done</th><th data-en="Due Date" data-es="Fecha">Due Date</th><th data-en="Task" data-es="Tarea">Task</th></tr></thead>
+        <tbody>
+          <tr><td><input type="checkbox" data-due-check="q1" /></td><td>April 15</td><td data-en="Q1 Estimated Payment" data-es="Pago Estimado T1">Q1 Estimated Payment</td></tr>
+          <tr><td><input type="checkbox" data-due-check="q2" /></td><td>June 15</td><td data-en="Q2 Estimated Payment" data-es="Pago Estimado T2">Q2 Estimated Payment</td></tr>
+          <tr><td><input type="checkbox" data-due-check="q3" /></td><td>September 15</td><td data-en="Q3 Estimated Payment" data-es="Pago Estimado T3">Q3 Estimated Payment</td></tr>
+          <tr><td><input type="checkbox" data-due-check="q4" /></td><td>January 15</td><td data-en="Q4 Estimated Payment" data-es="Pago Estimado T4">Q4 Estimated Payment</td></tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="tools.js?v=20260218b"></script>
+</body>
+</html>
