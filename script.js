@@ -50,13 +50,13 @@
       adv_3_title: "Payroll and Compliance Advisory",
       adv_3_body: "Process design and filing workflows that help your team run payroll confidently and correctly.",
       solutions_title: "Interactive Planning Tools",
-      estimator_title: "Monthly Revenue Forecast Simulator",
-      estimator_sub: "Adjust monthly revenue to preview annual revenue, quarterly tax estimates, and advisory cadence.",
-      estimator_label: "Monthly Revenue",
-      estimator_annual_label: "Projected Annual Revenue:",
-      estimator_tax_label: "Estimated Quarterly Tax Obligation:",
-      estimator_cadence_label: "Recommended Advisory Cadence:",
-      estimator_defaults_note: "Florida defaults: Personal income tax 0%, corporate income tax 5.5%, sales tax 6% (+ local surtax may apply).",
+      estimator_title: "Business Owner Time & Savings Simulator",
+      estimator_sub: "Adjust monthly hours currently spent on accounting to estimate hours and money you can save by hiring us.",
+      estimator_label: "Hours You Spend Monthly on Accounting",
+      estimator_annual_label: "Estimated Hours Saved Per Year:",
+      estimator_tax_label: "Estimated Annual Dollar Savings:",
+      estimator_cadence_label: "Suggested Support Level:",
+      estimator_defaults_note: "Assumptions: 40% time reduction from process support and an estimated owner value of $60/hour.",
       cadence_monthly: "Monthly Advisory",
       cadence_quarterly: "Quarterly Advisory",
       timeline_title: "Simple Client Onboarding",
@@ -158,13 +158,13 @@
       adv_3_title: "Asesoria de nomina y cumplimiento",
       adv_3_body: "Diseno de procesos y calendarios para operar nomina correctamente.",
       solutions_title: "Herramientas interactivas de planificacion",
-      estimator_title: "Simulador de Proyeccion de Ingresos Mensuales",
-      estimator_sub: "Ajusta los ingresos mensuales para ver ingresos anuales, impuestos trimestrales estimados y cadencia de asesoria.",
-      estimator_label: "Ingresos Mensuales",
-      estimator_annual_label: "Ingresos Anuales Proyectados:",
-      estimator_tax_label: "Obligacion Fiscal Trimestral Estimada:",
-      estimator_cadence_label: "Cadencia de Asesoria Recomendada:",
-      estimator_defaults_note: "Valores predeterminados para Florida: impuesto personal 0%, impuesto corporativo 5.5%, impuesto sobre ventas 6% (+ puede aplicar recargo local).",
+      estimator_title: "Simulador de Tiempo y Ahorro para Duenos de Negocio",
+      estimator_sub: "Ajusta las horas mensuales que hoy dedicas a contabilidad para estimar horas y dinero que puedes ahorrar al contratarnos.",
+      estimator_label: "Horas Mensuales Dedicadas a Contabilidad",
+      estimator_annual_label: "Horas Ahorradas Estimadas por Ano:",
+      estimator_tax_label: "Ahorro Anual Estimado en Dinero:",
+      estimator_cadence_label: "Nivel de Soporte Sugerido:",
+      estimator_defaults_note: "Supuestos: reduccion de tiempo del 40% por soporte de procesos y valor estimado del dueno de $60/hora.",
       cadence_monthly: "Asesoria Mensual",
       cadence_quarterly: "Asesoria Trimestral",
       timeline_title: "Integracion simple del cliente",
@@ -523,21 +523,22 @@
 
     if (!range || !monthlyRevenueOutput || !annualRevenueOutput || !quarterlyTaxOutput || !cadenceOutput) return;
 
-    const monthlyRevenue = Number(range.value);
-    const appliedRate = 5.5;
-    const projectedAnnualRevenue = monthlyRevenue * 12;
-    const estimatedQuarterlyTax = (projectedAnnualRevenue * appliedRate) / 100 / 4;
+    const monthlyHours = Number(range.value);
+    const estimatedReductionRate = 0.4;
+    const ownerHourlyValue = 60;
+    const annualHoursSaved = Math.round(monthlyHours * estimatedReductionRate * 12);
+    const annualDollarSavings = Math.round(annualHoursSaved * ownerHourlyValue);
     const advisoryCadence =
-      monthlyRevenue < 75000 ? dict.cadence_quarterly : dict.cadence_monthly;
+      monthlyHours < 25 ? dict.cadence_quarterly : dict.cadence_monthly;
     const usd = new Intl.NumberFormat("en-US", {
       style: "currency",
       currency: "USD",
       maximumFractionDigits: 0
     });
 
-    monthlyRevenueOutput.textContent = usd.format(monthlyRevenue);
-    annualRevenueOutput.textContent = usd.format(projectedAnnualRevenue);
-    quarterlyTaxOutput.textContent = usd.format(estimatedQuarterlyTax);
+    monthlyRevenueOutput.textContent = `${monthlyHours} hrs`;
+    annualRevenueOutput.textContent = `${annualHoursSaved} hrs`;
+    quarterlyTaxOutput.textContent = usd.format(annualDollarSavings);
     cadenceOutput.textContent = advisoryCadence;
   }
 
