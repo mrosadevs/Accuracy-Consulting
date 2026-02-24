@@ -423,11 +423,16 @@
           }
         });
       },
-      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+      { threshold: 0.08, rootMargin: "0px 0px -60px 0px" }
     );
 
-    revealTargets.forEach((el, index) => {
-      el.style.transitionDelay = `${Math.min(index * 40, 240)}ms`;
+    revealTargets.forEach((el) => {
+      const parentRevealChildren = el.parentElement
+        ? Array.from(el.parentElement.querySelectorAll(":scope > .reveal, :scope > .cards > .reveal"))
+        : [];
+      const siblingIndex = parentRevealChildren.indexOf(el);
+      const delay = siblingIndex >= 0 ? Math.min(siblingIndex * 80, 320) : 0;
+      el.style.transitionDelay = `${delay}ms`;
       observer.observe(el);
     });
   }
@@ -710,6 +715,8 @@
   }
 
   function initScrollUI() {
+    const header = document.querySelector(".site-header");
+
     const onScroll = () => {
       const height = document.documentElement.scrollHeight - window.innerHeight;
       const progress = height > 0 ? (window.scrollY / height) * 100 : 0;
@@ -721,6 +728,10 @@
       if (backToTop) {
         backToTop.classList.toggle("is-visible", window.scrollY > 500);
       }
+
+      if (header) {
+        header.classList.toggle("is-scrolled", window.scrollY > 40);
+      }
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -731,6 +742,64 @@
         window.scrollTo({ top: 0, behavior: "smooth" });
       });
     }
+  }
+
+  function initCardTilt() {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if ("ontouchstart" in window) return;
+
+    const cards = document.querySelectorAll(".card, .tool-card, .resource-card");
+    cards.forEach((card) => {
+      card.addEventListener("mousemove", (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = ((y - centerY) / centerY) * -3;
+        const rotateY = ((x - centerX) / centerX) * 3;
+        card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.01, 1.01, 1.01)`;
+        card.style.setProperty("--mx", `${x}px`);
+        card.style.setProperty("--my", `${y}px`);
+      });
+      card.addEventListener("mouseleave", () => {
+        card.style.transform = "perspective(800px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)";
+        card.style.removeProperty("--mx");
+        card.style.removeProperty("--my");
+      });
+    });
+  }
+
+  function initCustomCursor() {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if ("ontouchstart" in window) return;
+
+    const glow = document.createElement("div");
+    glow.className = "cursor-glow";
+    document.body.appendChild(glow);
+
+    document.addEventListener("mousemove", (e) => {
+      glow.style.left = e.clientX + "px";
+      glow.style.top  = e.clientY + "px";
+    });
+  }
+
+  function initMagneticButtons() {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if ("ontouchstart" in window) return;
+
+    const buttons = document.querySelectorAll(".btn");
+    buttons.forEach((btn) => {
+      btn.addEventListener("mousemove", (e) => {
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        btn.style.transform = `translate(${x * 0.12}px, ${y * 0.12}px)`;
+      });
+      btn.addEventListener("mouseleave", () => {
+        btn.style.transform = "";
+      });
+    });
   }
 
   if (themeToggle) {
@@ -774,5 +843,8 @@
   initEstimator();
   initForm();
   initScrollUI();
+  initCardTilt();
+  initMagneticButtons();
+  initCustomCursor();
 })();
 
