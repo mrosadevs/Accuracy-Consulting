@@ -12,6 +12,8 @@
 
 > 🕰️ *Originally built in 2018, fresh out of high school. Reimagined and rebuilt from the ground up in 2026.*
 
+[🌐 Live Site](https://accuracycg.com)
+
 </div>
 
 ---
